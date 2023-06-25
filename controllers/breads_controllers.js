@@ -19,9 +19,22 @@ breads.get('/', (req, res) => {
     res.render('index')
     //res.send(Bread)
 });
-*/
+
 breads.get('/:arrayIndex', (req, res) => {
     res.send(Bread[req.params.arrayIndex])
 });
+*/
+
+// SHOW
+breads.get('/:arrayIndex', (req, res) => {
+  if (Bread[req.params.arrayIndex]) {
+    res.render('Show', {
+      bread:Bread[req.params.arrayIndex]
+    })
+  } else {
+    res.send('404')
+  }
+})
+
 
 module.exports = breads;

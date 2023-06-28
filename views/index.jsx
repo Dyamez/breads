@@ -5,7 +5,7 @@ function Index ({breads, title}) {
     return (
       <Default title={title}>
         <h2>Index Page</h2>
-        {/* <p>I have {breads[0].name} bread!</p> */}
+        <link rel='index page' type='image/jpg' href='public\small-profile.jpeg'/>
         <ul>
             {
                 breads.map((bread, index)=> {
@@ -25,8 +25,6 @@ function Index ({breads, title}) {
 <div className="backButton">
   <a href="/breads"><button>Go back to the index</button></a>
 </div>
-
-
       </Default>
     )
 }

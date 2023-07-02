@@ -1,4 +1,5 @@
 const express = require('express');
+const mongoose = require('mongoose');
 
 require('dotenv').config();
 const PORT = process.env.PORT;
@@ -28,7 +29,12 @@ app.get('*', (req, res) => {
     res.send('404')
   })
   
+// MongoDB connection
+mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true}, 
+  () => { console.log('connected to mongo: ', process.env.MONGO_URI) }
+)
+
+// listen port  
 app.listen(PORT, () => {
-    //console.log('listening on port', PORT)
     console.log('http://localhost:${PORT}')
 })

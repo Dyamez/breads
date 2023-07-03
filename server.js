@@ -45,7 +45,6 @@ mongoose
   })
   .then(() => {
     console.log('Connected to MongoDB:', process.env.MONGO_URI)
-    // Continue with your application logic here
   })
   .catch((error) => {
     console.error('Error connecting to MongoDB:', error)

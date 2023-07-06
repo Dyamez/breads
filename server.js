@@ -36,7 +36,7 @@ mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopolo
 )
 */
 
-//code working with new version of mongooseDB
+//code working with new version of mongooseDB version 7+
 mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true})
 mongoose
   .connect(process.env.MONGO_URI, {

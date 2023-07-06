@@ -1,6 +1,7 @@
 const express = require('express');
 const breads = express.Router();
 const Bread = require('../models/bread.js');
+const newBread = require('../models/newBread.js')
 
 // INDEX 
 
@@ -58,6 +59,7 @@ breads.post('/', (req, res) => {
   res.redirect('/breads')
 })
 
+//DELETE
 breads.delete('/:id', (req, res) => {
   Bread.findByIdAndDelete(req.params.id) 
     .then(deletedBread => { 
@@ -78,16 +80,13 @@ breads.put('/:id', (req, res) => {
       res.redirect(`/breads/${req.params.id}`) 
     })
 })
-/*
+
 //Seed (Bonus)
 breads.get('/data/seed', (req, res) => {
   Bread.insertMany(newBread)
     .then(createdBreads => {
       res.redirect('/breads')
     })
-    .catch(err => {
-      res.send('error404')
-    })
 })
-*/ 
+
 module.exports = breads

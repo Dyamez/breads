@@ -56,7 +56,11 @@ breads.post('/', (req, res) => {
     req.body.hasGluten = false
   }
   Bread.create(req.body)
+  .then(() => { 
   res.redirect('/breads')
+}) .catch(err => {
+  res.status(404).send('404 Not Found');
+})
 })
 
 //DELETE

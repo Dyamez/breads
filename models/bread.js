@@ -9,9 +9,11 @@ const breadSchema = new Schema({
     hasGluten: Boolean,
     image: { type: String, default: 'https://ih0.redbubble.net/image.424804829.3332/ap,550x550,12x12,1,transparent,t.u4.png' },
     baker: {
-        type: String,
-        enum: ['Ronald', 'Grimace', 'Hamburglar', 'Birdie', 'Sundae', 'Fry Kids']
-    }
+        //type: String,
+        //enum: ['Ronald', 'Grimace', 'Hamburglar', 'Birdie', 'Sundae', 'Fry Kids']
+        type: Schema.Types.ObjectId,
+        ref: 'Baker'
+      }
 })
 
 // helper methods 

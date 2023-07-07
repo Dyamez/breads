@@ -5,23 +5,23 @@ function Show ({bread, index}) {
       return (
         <Default>
   <h3>{bread.name}</h3>
-  <form action={`/breads/${bread.id}?_method=DELETE`} method="POST">
-  <input type='submit' value="DELETE"/>
-</form>
   <p>
-    and it
+    And it
     {
       bread.hasGluten
       ? <span> does </span>
       : <span> does NOT </span>
     }
-    have gluten.
+    have <b>Gluten.</b>
   </p>
   <img src={bread.image} alt={bread.name} />
   <br></br>
   <p>{bread.getBakedBy()}</p>
   <li><a href="/breads">Go home</a></li>
   <a href={`/breads/${bread.id}/edit`}><button>Edit</button></a>
+  <form action={`/breads/${bread.id}?_method=DELETE`} method="POST">
+  <input type='submit' value="DELETE"/>
+</form>
 </Default>
       )
   };

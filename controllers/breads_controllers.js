@@ -71,7 +71,7 @@ breads.delete('/:id', (req, res) => {
     })
 })
 
-//Edit
+//Update
 breads.put('/:id', (req, res) => {
   if(req.body.hasGluten === 'on'){
     req.body.hasGluten = true

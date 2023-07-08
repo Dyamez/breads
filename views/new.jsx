@@ -20,7 +20,7 @@ function New ({bakers}) {
             name="image"
             id="image"/>
             <label htmlFor="baker">Baker</label>
-            <select name="baker" id="baker">
+            <select name="baker" id="baker" defaultValue={breads.baker}>
               {bakers.map((baker) => {
                 return(
                   <option value={baker.id} key={baker.id}>{baker.name}</option>

@@ -9,28 +9,17 @@ const breadSchema = new Schema({
     hasGluten: Boolean,
     image: { type: String, default: 'https://ih0.redbubble.net/image.424804829.3332/ap,550x550,12x12,1,transparent,t.u4.png' },
     baker: {
-        //type: String,
-        //enum: ['Ronald', 'Grimace', 'Hamburglar', 'Birdie', 'Sundae', 'Fry Kids']
-        type: Schema.Types.ObjectId,
-        ref: 'Baker'
+        type: Schema.Types.ObjectID,
+        ref: 'baker'
       }
 })
 
 // helper methods 
 breadSchema.methods.getBakedBy = function(){
-    return `${this.name} was baked with love by ${this.baker}`
-  }  
-/*
-  //instance method
-  breadSchema.method.getBakedBy = () => {
-    return `${this.name} was baked with love by ${this.baker}`
-  }
+  return `${this.name} was baked with love by ${this.baker.name}, who has been with us since ${this.baker.startDate.getFullYear()}`
+  //return `${this.name} was baked with love by ${this.baker.name}, who has been with us since ${this.baker.startDate.getFullYear()}`
+}
 
-  //static method
-  breadSchema.static.findBakersOtherBreads = () => {
-    
-  }
-*/
 // model and export 
 const Bread = mongoose.model('Bread', breadSchema)
 module.exports = Bread

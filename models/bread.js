@@ -10,14 +10,15 @@ const breadSchema = new Schema({
     image: { type: String, default: 'https://ih0.redbubble.net/image.424804829.3332/ap,550x550,12x12,1,transparent,t.u4.png' },
     baker: {
         type: Schema.Types.ObjectID,
-        ref: 'baker'
+        ref: 'Baker'
       }
 })
 
 // helper methods 
 breadSchema.methods.getBakedBy = function(){
-  return `${this.name} was baked with love by ${this.baker.name}, who has been with us since ${this.baker.startDate.getFullYear()}`
   //return `${this.name} was baked with love by ${this.baker.name}, who has been with us since ${this.baker.startDate.getFullYear()}`
+  //return `${this.name} was baked with love by ${this.baker}, who has been with us since ${this.baker}`
+  return `${this.name} was baked with love by ${this.baker}`
 }
 
 // model and export 

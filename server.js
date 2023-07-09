@@ -18,7 +18,7 @@ app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 
 app.get('/', (req, res) => {
-    res.send('Welcome to an Awesome App about Breads!')
+    res.send('Welcome to the Wonderful World of Breads from around the World.')
 });
 
 //breads

@@ -28,13 +28,7 @@ function Edit ({bread, bakers}) {
                   <option value={baker.id} key={baker.id}>{baker.name}</option>
                 )
               })}
-              {/*<option value="Ronald">Ronald</option>
-              <option value="Grimace">Grimace</option>
-              <option value="Hamburgler">Hamburgler</option>
-              <option value="Birdie">Birdie</option>
-              <option value="Sundae">Sundae</option>
-            <option value="Fry Kids">Fry Kids</option> */}
-            </select>
+              </select>
           <label htmlFor="hasGluten">Has Gluten?</label>
           <input
             type="checkbox"

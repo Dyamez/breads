@@ -1,14 +1,16 @@
 const express = require('express');
 const breads = express.Router();
 const Bread = require('../models/bread.js');
-const newBread = require('../models/newBread.js')
+//const newBread = require('../models/newBread.js')
 const Baker = require('../models/baker.js')
+const seedData = require('../models/baker_seed.js')
 
 // INDEX 
 breads.get('/', (req, res) => {
   Baker.find()
   .then(foundBakers => { 
   Bread.find()
+  .populate('baker')
       .then(foundBreads => {
           res.render('index', {
               breads: foundBreads,
@@ -34,8 +36,6 @@ breads.get('/:id', (req, res) => {
   Bread.findById(req.params.id)
     .populate('baker')
     .then(foundBread => {
-      //const bakedBy = foundBread.getBakedBy()
-      //console.log(bakedBy)
       res.render('show', {
         bread: foundBread
       })

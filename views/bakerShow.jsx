@@ -13,7 +13,9 @@ function Show ({baker}) {
         baker.breads.map((bread)=> {
             return (
                 <li key={bread.id}>
+                    <a href={`/breads/${bread.id}`}>
                     {bread.name}
+                    </a>
                 </li>
             )
         })

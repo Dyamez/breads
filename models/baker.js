@@ -1,7 +1,7 @@
 //dependecies
 const mongoose = require('mongoose')
 const { Schema } = mongoose
-//const Bread = require('./bread')
+const Bread = require('./bread')
 
 //schema
 const bakerSchema = new Schema ({
@@ -12,7 +12,7 @@ const bakerSchema = new Schema ({
     }, 
     startDate: { type: Date, required: true },
     bio: String
-}, { toJSON: { virtuals: true }})
+}, { toJSON: { virtuals: true },})
 
 //virtuals
 bakerSchema.virtual('breads', {
@@ -21,6 +21,14 @@ bakerSchema.virtual('breads', {
     foreignField: 'baker'
 })
 
+// hooks 
+bakerSchema.post('findOneAndDelete', function() {
+    Bread.deleteMany({ baker: this._conditions._id })
+        .then(deleteStatus => {
+            console.log(deleteStatus)
+        })
+  })      
+
 // model and export
-const  Baker = mongoose.model('Baker', bakerSchema)
+const Baker = mongoose.model('Baker', bakerSchema)
 module.exports = Baker

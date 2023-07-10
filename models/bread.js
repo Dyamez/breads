@@ -7,7 +7,9 @@ const breadSchema = new Schema({
   name: { type: String, required: true },
   hasGluten: Boolean,
   image: { type: String, default: 'https://ih0.redbubble.net/image.424804829.3332/ap,550x550,12x12,1,transparent,t.u4.png'},
-  baker: {type: Schema.Types.ObjectID, ref: 'Baker'}
+  baker: {
+          type: Schema.Types.ObjectID, 
+          ref: 'Baker'}
   }, {
     toJSON: {
       virtuals: true

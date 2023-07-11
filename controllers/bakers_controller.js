@@ -4,6 +4,7 @@ const baker = express.Router()
 const Baker = require('../models/baker.js')
 const bakerSeedData = require('../models/baker_seed.js')
 
+//Index
 baker.get('/', (req, res) => {
     Baker.find()
         .populate('breads')

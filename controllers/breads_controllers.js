@@ -1,41 +1,19 @@
-const express = require('express');
-const breads = express.Router();
-const Bread = require('../models/bread.js');
-//const newBread = require('../models/newBread.js')
+const express = require('express')
+const breads = express.Router()
+const Bread = require('../models/bread.js')
 const Baker = require('../models/baker.js')
 const seedData = require('../models/baker_seed.js')
 
 // INDEX 
-
-breads.get('/', (req, res) => {
-  Baker.find().lean()
-    .then(foundBakers => {
-      Bread.find().limit(2)//.lean()
-          .populate('baker')
-          .then(foundBreads => {
-            //console.log(foundBreads)
-              res.render('index', {
-                  breads: foundBreads,
-                  bakers: foundBakers,
-                  title: 'Index Page'
-              })
-          })
-
-    })
-})
-
-/*
 breads.get('/', async (req, res) => {
   const foundBakers = await Baker.find().lean() 
-  const foundBreads = await Bread.find().limit(2).lean() 
+  const foundBreads = await Bread.find().limit(2).populate('baker')//.lean() 
   res.render('index', {
     breads: foundBreads,
     bakers: foundBakers,
     title: 'Index Page'
   })
 })
-*/
-
 
 // NEW
 breads.get('/new', (req, res) => {
@@ -124,3 +102,21 @@ breads.get('/data/seed', (req, res) => {
 })
 
 module.exports = breads
+
+/*breads.get('/', (req, res) => {
+  Baker.find().lean()
+    .then(foundBakers => {
+      Bread.find().limit(2)//.lean()
+          .populate('baker')
+          .then(foundBreads => {
+            //console.log(foundBreads)
+              res.render('index', {
+                  breads: foundBreads,
+                  bakers: foundBakers,
+                  title: 'Index Page'
+              })
+          })
+
+    })
+}) */
+//const newBread = require('../models/newBread.js')

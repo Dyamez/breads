@@ -21,7 +21,7 @@ function Show ({baker}) {
         })
     }
 </ul>
-
+<li><a href="/breads">Go home</a></li>
 <form action={`/bakers/${baker.id}?_method=DELETE`} method="POST">
   <input type="submit" value="DELETE"/>
 </form>

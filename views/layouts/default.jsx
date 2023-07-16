@@ -20,8 +20,7 @@ const React = require('react')
         </div>
       </div>
     </body>
-    </html>
-  )
-}
+</html>
+)}
 
 module.exports = Default

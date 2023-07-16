@@ -25,7 +25,8 @@ function Index ({breads, bakers, title})  {
                 <li key={index}> 
                     <a href={`/breads/${bread._id}`}>
                     {bread.name}
-                    </a>: {bread.getBakedBy()}
+                    </a>: <p />
+                    {bread.getBakedBy()}
                 </li>
                 )
             }) :(<div>You're out of Bread!</div>)
@@ -34,7 +35,7 @@ function Index ({breads, bakers, title})  {
         <div className="newButton">
         <a href="/breads/new"><button>Add a new bread</button></a>
         </div>
-        </Default>
+    </Default>
     )
 }
 
